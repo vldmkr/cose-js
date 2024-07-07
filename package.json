@@ -15,8 +15,7 @@
     "watch": "watch 'npm run coveragehtml' test lib",
     "dev": "npm-run-all -p --silent watch live",
     "build": "babel src -d lib",
-    "prepare": "npm run build",
-    "postinstall": "npx babel node_modules/@noble/curves --out-dir node_modules/@noble/curves/lib"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
