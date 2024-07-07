@@ -13,7 +13,8 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "live": "live-server -q --port=4003 --ignorePattern='(js|css|png)$' coverage",
     "watch": "watch 'npm run coveragehtml' test lib",
-    "dev": "npm-run-all -p --silent watch live"
+    "dev": "npm-run-all -p --silent watch live",
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,10 @@
     "node-rsa": "^1.1.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.25.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/preset-env": "^7.25.3",
     "ava": "^3.15.0",
     "base64url": "^3.0.1",
     "jsonfile": "^2.4.0",
@@ -60,8 +65,5 @@
   },
   "engines": {
     "node": ">=12.0"
-  },
-  "semistandard": {
-    "ignore": ["tmp/**", "examples/**"]
   }
 }
