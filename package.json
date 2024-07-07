@@ -16,7 +16,7 @@
     "dev": "npm-run-all -p --silent watch live",
     "build": "babel src -d lib",
     "prepare": "npm run build",
-    "postinstall": "babel node_modules/@noble/curves -d node_modules/@noble/curves/lib"
+    "postinstall": "./node_modules/.bin/babel node_modules/@noble/curves -d node_modules/@noble/curves/lib"
   },
   "repository": {
     "type": "git",
