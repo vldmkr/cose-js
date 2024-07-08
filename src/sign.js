@@ -209,6 +209,18 @@ exports.create = async function (headers, payload, signers, options) {
   }
 };
 
+exports.createUnsigned = function (headers, payload, options) {
+  options = options || {};
+  let u = headers.u || {};
+  let p = headers.p || {};
+
+  p = common.TranslateHeaders(p);
+  u = common.TranslateHeaders(u);
+  p = (p.size === 0) ? EMPTY_BUFFER : cbor.encode(p);
+  const msg = [p, u, payload, EMPTY_BUFFER];
+  return cbor.encodeCanonical(options.excludetag ? msg : new Tagged(Sign1Tag, msg));
+};
+
 function doVerify(SigStructure, verifier, alg, sig) {
   if (!AlgFromTags[alg]) {
     throw new Error('Unknown algorithm, ' + alg);

@@ -1,4 +1,4 @@
-const cose = require('../');
+const cose = require('../src');
 const { secp256k1 } = require('@noble/curves/secp256k1');
 
 async function run () {
